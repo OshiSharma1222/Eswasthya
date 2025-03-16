@@ -1,0 +1,242 @@
+:root {
+    --primary: #4f46e5;
+    --secondary: #ec4899;
+    --accent: #06b6d4;
+    --glass: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #0f172a;
+    color: white;
+    overflow-x: hidden;
+}
+
+.gradient-bg {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+.gradient-animation {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        var(--primary),
+        var(--secondary),
+        var(--accent)
+    );
+    animation: gradient 15s ease infinite;
+    opacity: 0.5;
+}
+
+.glass-card {
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+}
+
+.glass-nav {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1200px;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    border-radius: 100px;
+    border: 1px solid var(--glass-border);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-animation {
+    position: relative;
+    width: 40px;
+    height: 40px;
+}
+
+.pulse, .heartbeat {
+    position: absolute;
+    font-size: 2rem;
+}
+
+.pulse {
+    color: var(--secondary);
+    animation: pulse 2s infinite;
+}
+
+.heartbeat {
+    color: var(--accent);
+    animation: heartbeat 1.5s infinite;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.hero-content {
+    text-align: center;
+    padding: 3rem;
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, #fff, #a5b4fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.typewriter {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    border-right: 2px solid var(--accent);
+    animation: typing 3.5s steps(40, end), blink .75s step-end infinite;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem 5%;
+}
+
+.feature-card {
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.glow-border {
+    position: absolute;
+    inset: 0;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    animation: borderGlow 2s linear infinite;
+    pointer-events: none;
+}
+
+.sos-container {
+    text-align: center;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 300px;
+}
+
+.sos-button {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: none;
+    background: var(--secondary);
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: relative;
+}
+
+.sos-ring {
+    position: absolute;
+    inset: -8px;
+    border: 4px solid var(--secondary);
+    border-radius: 50%;
+    animation: sosRing 1.5s infinite;
+}
+
+.chat-bot {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+}
+
+.chat-toggle {
+    padding: 1rem 2rem;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-size: 1.1rem;
+}
+
+@keyframes gradient {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    14% { transform: scale(1.3); }
+    28% { transform: scale(1); }
+    42% { transform: scale(1.3); }
+    70% { transform: scale(1); }
+}
+
+@keyframes borderGlow {
+    0%, 100% { border-color: var(--primary); }
+    50% { border-color: var(--secondary); }
+}
+
+@keyframes sosRing {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.5); opacity: 0; }
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .glass-nav {
+        padding: 0.8rem 1rem;
+    }
+    
+    .features {
+        grid-template-columns: 1fr;
+    }
+}

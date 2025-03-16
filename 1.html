@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Assistant</title>
+    <link rel="stylesheet" href="1.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <div class="heart-logo"></div>
+            <span>HealthCare</span>
+        </div>
+        <div class="nav-items">
+            <select class="language-selector" aria-label="Select Language">
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="hi">हिंदी</option>
+                <option value="fr">Français</option>
+            </select>
+            <button class="voice-toggle" aria-label="Toggle Voice Assistant">
+                <span class="mic-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <h1 class="gradient-text">Your Health Assistant</h1>
+            <p>24/7 Healthcare Support & Monitoring</p>
+        </section>
+
+        <section class="services">
+            <h2 class="section-title gradient-text">Our Services</h2>
+            <div class="service-cards">
+                <div class="service-card glass-effect">
+                    <div class="service-icon health-icon"></div>
+                    <h3>Health Monitoring</h3>
+                    <p>Track your daily health patterns</p>
+                </div>
+                <div class="service-card glass-effect">
+                    <div class="service-icon yoga-icon"></div>
+                    <h3>Yoga & Meditation</h3>
+                    <p>Daily wellness activities</p>
+                </div>
+                <div class="service-card glass-effect">
+                    <div class="service-icon report-icon"></div>
+                    <h3>Medical Reports</h3>
+                    <p>Scan and analyze reports</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="hospital-finder">
+            <h2 class="section-title gradient-text">Find Nearby Hospitals</h2>
+            <div class="finder-container">
+                <div class="search-column">
+                    <div class="search-box glass-effect">
+                        <input type="text" placeholder="Enter your location" aria-label="Location Search">
+                        <button class="search-btn">Search</button>
+                    </div>
+                    <div class="hospital-list">
+                        <div class="hospital-card glass-effect">
+                            <h3>City Hospital</h3>
+                            <p>2.5 km away</p>
+                            <p>Emergency Services Available</p>
+                            <button class="route-btn gradient-btn">Get Route</button>
+                        </div>
+                        <div class="hospital-card glass-effect">
+                            <h3>Medical Center</h3>
+                            <p>3.8 km away</p>
+                            <p>24/7 Emergency Care</p>
+                            <button class="route-btn gradient-btn">Get Route</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-column glass-effect">
+                    <div class="map-placeholder"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="reminder-system">
+            <h2 class="section-title gradient-text">Medication Reminders</h2>
+            <div class="reminder-container glass-effect">
+                <form class="reminder-form">
+                    <input type="text" placeholder="Medication Name" required>
+                    <input type="time" required>
+                    <input type="date" required>
+                    <button type="submit" class="gradient-btn">Set Reminder</button>
+                </form>
+                <div class="reminder-list">
+                    <div class="reminder-card">
+                        <h4>Medication A</h4>
+                        <p>09:00 AM</p>
+                        <span class="badge">Daily</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    
+    <!-- Previous code remains same until floating assistant section -->
+
+    <div class="floating-controls">
+        <button class="assistant-btn glass-card">
+            <span class="material-icons">smart_toy</span>
+            <span>AI Health Assistant</span>
+        </button>
+        <button class="voice-btn glass-card">
+            <span class="material-icons">mic</span>
+            <span>Voice Assistant</span>
+        </button>
+    </div>
+
+<!-- Rest of the HTML remains same -->
+    
+
+    <div class="chatbot glass-effect">
+        <div class="chat-header">
+            AI Health Assistant
+            <button class="close-chat" aria-label="Close Chat">×</button>
+        </div>
+        <div class="chat-messages">
+            <div class="message bot">How can I help you today?</div>
+        </div>
+        <div class="chat-input">
+            <input type="text" placeholder="Type your message...">
+            <button class="voice-input" aria-label="Voice Input"></button>
+            <button class="send-message" aria-label="Send Message"></button>
+        </div>
+    </div>
+
+    <button class="sos-button" aria-label="Emergency SOS">SOS</button>
+    <button class="ai-assistant-toggle glass-effect" aria-label="AI Assistant">AI</button>
+</body>
+</html>
