@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MediCare+ | Smart Healthcare Platform</title>
+    <title>E-Swasthya | Smart Healthcare Platform</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="addition2.css">
+    <link rel="stylesheet" href="public/css/modal.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places,geometry"></script>
+    <script src="public/js/maps.js"></script>
+    <script src="public/js/main.js"></script>
 </head>
 <body>
     <div class="gradient-bg">
@@ -18,13 +23,13 @@
                 <span class="pulse">+</span>
                 <span class="heartbeat">❤</span>
             </div>
-            <span class="logo-text">E Swasthya<span class="highlight">+</span></span>
+            <span class="logo-text">E-Swasthya<span class="highlight">+</span></span>
         </div>
         
         <div class="nav-links">
             <a href="#dashboard" class="active">Dashboard</a>
             <a href="#family">Family</a>
-            <a href="#reports">Records</a>
+            <a href="#records">Records</a>
             <a href="#hospitals">Hospitals</a>
             <div class="nav-icons">
                 <button class="icon-btn" title="Voice Assistant">
@@ -42,96 +47,89 @@
                 <option value="hi">हिंदी</option>
                 <option value="es">Español</option>
             </select>
+            <button class="user-profile glass-btn">
+                <span class="material-icons">account_circle</span>
+            </button>
         </div>
     </nav>
 
-    <header class="hero">
-        <div class="hero-content glass-card">
-            <h1>Your Smart Healthcare Companion</h1>
-            <p class="typewriter">AI-Powered Healthcare Solutions</p>
-            <div class="hero-buttons">
-                <button class="primary-btn">Get Started</button>
-                <button class="secondary-btn pulse-btn">Emergency SOS</button>
-            </div>
-        </div>
-    </header>
-
     <main>
+        <section class="dashboard-overview">
+            <div class="overview-grid">
+                <div class="stat-card glass-card">
+                    <span class="material-icons">favorite</span>
+                    <h3>Health Score</h3>
+                    <p class="stat-value">85%</p>
+                </div>
+                <div class="stat-card glass-card">
+                    <span class="material-icons">calendar_today</span>
+                    <h3>Next Appointment</h3>
+                    <p class="stat-value">Tomorrow, 10:00 AM</p>
+                </div>
+                <div class="stat-card glass-card">
+                    <span class="material-icons">medication</span>
+                    <h3>Medications</h3>
+                    <p class="stat-value">2 Due Today</p>
+                </div>
+                <div class="stat-card glass-card">
+                    <span class="material-icons">local_hospital</span>
+                    <h3>Nearby Hospitals</h3>
+                    <p class="stat-value">5 Available</p>
+                </div>
+            </div>
+        </section>
+
         <section class="family-dashboard">
             <div class="dashboard-container glass-card">
-                <h2>Family Members</h2>
+                <div class="section-header">
+                    <h2>Family Members</h2>
+                    <button class="add-btn glass-btn">
+                        <span class="material-icons">person_add</span>
+                        Add Member
+                    </button>
+                </div>
                 <div class="family-grid">
-                    <div class="member-card glass-card">
-                        <div class="member-avatar">👨</div>
-                        <h3>John Doe</h3>
-                        <p>Primary Member</p>
-                        <div class="member-stats">
-                            <span>Age: 45</span>
-                            <span>Blood: O+</span>
-                        </div>
-                        <button class="view-btn">View Records</button>
-                    </div>
-                    <div class="member-card glass-card">
-                        <div class="member-avatar">👩</div>
-                        <h3>Jane Doe</h3>
-                        <p>Family Member</p>
-                        <div class="member-stats">
-                            <span>Age: 40</span>
-                            <span>Blood: B+</span>
-                        </div>
-                        <button class="view-btn">View Records</button>
-                    </div>
-                    <div class="add-member glass-card">
-                        <span class="add-icon">+</span>
-                        <p>Add Family Member</p>
-                    </div>
+                    <!-- Family members will be added here dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <section class="medical-records">
+            <div class="records-container glass-card">
+                <div class="section-header">
+                    <h2>Medical Records</h2>
+                    <button class="upload-btn glass-btn" onclick="document.getElementById('record-upload').click()">
+                        <span class="material-icons">upload_file</span>
+                        Upload Record
+                    </button>
+                </div>
+                <input type="file" id="record-upload" accept=".pdf,image/*" style="display: none">
+                <div class="records-grid">
+                    <!-- Records will be added here dynamically -->
                 </div>
             </div>
         </section>
 
         <section class="hospital-finder">
             <div class="finder-container glass-card">
-                <h2>Find Nearby Hospitals</h2>
-                <div class="search-box">
-                    <input type="text" placeholder="Enter your location" class="glass-input">
-                    <button class="search-btn">Search</button>
+                <div class="section-header">
+                    <h2>Find Nearby Hospitals</h2>
+                    <div class="search-box">
+                        <input type="text" placeholder="Search location..." class="glass-input">
+                        <button class="search-btn glass-btn">
+                            <span class="material-icons">search</span>
+                        </button>
+                    </div>
                 </div>
                 <div class="hospital-results">
                     <div class="hospital-list">
-                        <div class="hospital-card glass-card">
-                            <h3>City Hospital</h3>
-                            <div class="hospital-info">
-                                <span>🚶‍♂️ 2.5 km away</span>
-                                <span>⏰ Open 24/7</span>
-                                <span>🚑 Emergency Available</span>
-                            </div>
-                            <button class="route-btn">Show Route</button>
-                        </div>
+                        <!-- Hospitals will be listed here -->
                     </div>
-                    <div class="map-view glass-card">
-                        <!-- Map Integration -->
+                    <div class="map-view">
+                        <!-- Google Maps will be rendered here -->
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="ai-scanner">
-            <div class="scanner-container glass-card">
-                <h2>AI Report Analysis</h2>
-                <div class="scanner-interface">
-                    <div class="upload-area">
-                        <span class="material-icons scanner-icon">document_scanner</span>
-                        <p>Upload Medical Report</p>
-                        <span class="supported-text">Supports: PDF, JPG, PNG</span>
-                    </div>
-                    <div class="analysis-results glass-card">
-                        <div class="result-header">
-                            <h3>AI Analysis Results</h3>
-                            <span class="material-icons">auto_awesome</span>
-                        </div>
-                        <div class="result-content">
-                            <!-- Analysis content -->
-                        </div>
+                    <div class="directions-panel glass-card">
+                        <!-- Directions will be shown here -->
                     </div>
                 </div>
             </div>
@@ -141,13 +139,25 @@
             <div class="plan-container glass-card">
                 <h2>Your Health Plan</h2>
                 <div class="plan-tabs">
-                    <button class="tab-btn active">Medicines</button>
-                    <button class="tab-btn">Yoga</button>
-                    <button class="tab-btn">Diet Chart</button>
-                    <button class="tab-btn">Meditation</button>
+                    <button class="tab-btn active">
+                        <span class="material-icons">medication</span>
+                        Medicines
+                    </button>
+                    <button class="tab-btn">
+                        <span class="material-icons">self_improvement</span>
+                        Yoga
+                    </button>
+                    <button class="tab-btn">
+                        <span class="material-icons">restaurant_menu</span>
+                        Diet Chart
+                    </button>
+                    <button class="tab-btn">
+                        <span class="material-icons">spa</span>
+                        Meditation
+                    </button>
                 </div>
                 <div class="plan-content">
-                    <!-- Plan content -->
+                    <!-- Plan content will be loaded here -->
                 </div>
             </div>
         </section>
